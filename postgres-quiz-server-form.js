@@ -51,10 +51,10 @@ app.post('/api/submit-questions', async (req, res) => {
     }
 });
 
-// Get all questions
+// Get random questions
 app.get('/api/questions', async (req, res) => {
     try {
-        const result = await pool.query('SELECT * FROM questions');
+        const result = await pool.query('SELECT * FROM questions ORDER BY RANDOM() LIMIT 10');
         res.json(result.rows);
     } catch (error) {
         console.error('Error retrieving questions:', error);
