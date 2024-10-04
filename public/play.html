@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogar Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .question-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .option-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .option-button:hover {
+            background-color: #e0e0e0;
+        }
+        .option-button.correct {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .option-button.incorrect {
+            background-color: #f44336;
+            color: white;
+        }
+        #score {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        #gameOver {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Jogar Quiz</h1>
+    <div id="score">Pontuação: <span id="scoreValue">0</span></div>
+    <div id="questionContainer"></div>
+    <div id="gameOver" style="display: none;">
+        <h2>Fim do Jogo!</h2>
+        <p>Pontuação Final: <span id="finalScore">0</span></p>
+        <button onclick="restartGame()">Jogar Novamente</button>
+        <button onclick="window.location.href='index.html'">Voltar ao Início</button>
+    </div>
+
+    <script src="play.js"></script>
+</body>
+</html>
