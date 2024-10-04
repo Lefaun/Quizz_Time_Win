@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Quiz - Página Simples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        #statusMessage {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <h1>Teste de Submissão de Pergunta</h1>
+    
+    <form id="testForm">
+        <div class="form-group">
+            <label for="question">Pergunta:</label>
+            <input type="text" id="question" required>
+        </div>
+        <div class="form-group">
+            <label for="option1">Opção 1:</label>
+            <input type="text" id="option1" required>
+        </div>
+        <div class="form-group">
+            <label for="option2">Opção 2:</label>
+            <input type="text" id="option2" required>
+        </div>
+        <div class="form-group">
+            <label for="correctAnswer">Resposta Correta (0 ou 1):</label>
+            <input type="number" id="correctAnswer" min="0" max="1" required>
+        </div>
+        <button type="submit">Enviar Pergunta</button>
+    </form>
+
+    <div id="statusMessage"></div>
+
+    <script>
+        document.getElementById('testForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const statusMessage = document.getElementById('statusMessage');
+            statusMessage.textContent = 'Enviando...';
+            statusMessage.className = '';
+
+            const formData = {
+                question: document.getElementById('question').value,
+                option1: document.getElementById('option1').value,
+                option2: document.getElementById('option2').value,
+                correctAnswer: parseInt(document.getElementById('correctAnswer').value)
+            };
+
+            try {
+                const response = await fetch('/api/submit-question', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+                
+                if (response.ok) {
+                    statusMessage.textContent = 'Pergunta adicionada com sucesso!';
+                    statusMessage.className = 'success';
+                    this.reset();
+                } else {
+                    statusMessage.textContent = `Erro: ${result.error}`;
+                    statusMessage.className = 'error';
+                }
+            } catch (error) {
+                statusMessage.textContent = 'Falha ao enviar pergunta. Por favor, tente novamente.';
+                statusMessage.className = 'error';
+                console.error('Erro:', error);
+            }
+        });
+    </script>
+</body>
+</html>
