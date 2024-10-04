@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quiz Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Online Quiz Game</h1>
+    
+    <div class="submit-form">
+        <h2>Submit a Question</h2>
+        <form id="questionForm">
+            <input type="text" id="question" placeholder="Enter your question" required>
+            <input type="text" id="option1" placeholder="Option 1" required>
+            <input type="text" id="option2" placeholder="Option 2" required>
+            <input type="number" id="correctAnswer" placeholder="Correct Answer (0 or 1)" min="0" max="1" required>
+            <button type="submit">Submit Question</button>
+        </form>
+        <div id="submitResult"></div>
+    </div>
+
+    <button id="playButton">Play</button>
+    <div id="quiz"></div>
+    <div id="result"></div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>
