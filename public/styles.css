@@ -6,8 +6,29 @@ body {
     background-color: #f9f9f9;
 }
 
-h1 {
+h1, h2 {
     color: #333;
+    text-align: center;
+}
+
+.navigation {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.play-button {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.play-button:hover {
+    background-color: #1976D2;
 }
 
 .submit-form {
@@ -19,35 +40,58 @@ h1 {
 }
 
 .form-group {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
 input[type="text"], select, button {
-    display: block;
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 button {
     background-color: #4CAF50;
     color: white;
     border: none;
+    padding: 12px 20px;
     cursor: pointer;
+    flex: 1;
+    transition: background-color 0.3s;
 }
 
 button:hover {
     background-color: #45a049;
 }
 
+#addQuestion {
+    background-color: #FF9800;
+}
+
+#addQuestion:hover {
+    background-color: #F57C00;
+}
+
 #submitResult {
-    font-weight: bold;
     margin-top: 20px;
     padding: 10px;
     border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
 }
 
 #submitResult.success {
