@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Game - Multiple Questions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Quiz Game - Add Questions</h1>
+    
+    <form id="quizForm">
+        <div id="questionsContainer">
+            <div class="submit-form">
+                <div class="form-group">
+                    <label>Questão:</label>
+                    <input type="text" class="question" required>
+                </div>
+                <div class="form-group">
+                    <label>Opção 1:</label>
+                    <input type="text" class="option1" required>
+                </div>
+                <div class="form-group">
+                    <label>Opção 2:</label>
+                    <input type="text" class="option2" required>
+                </div>
+                <div class="form-group">
+                    <label>Resposta Correta:</label>
+                    <select class="correctAnswer" required>
+                        <option value="0">Opção 1</option>
+                        <option value="1">Opção 2</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <button type="button" id="addQuestion">Adicionar Outra Questão</button>
+        <button type="submit">Enviar Todas as Questões</button>
+    </form>
+
+    <div id="submitResult"></div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>
