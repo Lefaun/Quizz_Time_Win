@@ -65,7 +65,7 @@ input[type="text"], select, button {
 }
 
 button {
-    background-color: #4CAF50;
+    background-color: #268db8;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -75,7 +75,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #063970;
 }
 
 #addQuestion {
